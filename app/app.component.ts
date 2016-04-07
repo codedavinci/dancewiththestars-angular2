@@ -3,6 +3,7 @@ import {ArtistInput} from "./artist/components/artist-input";
 import {ArtistList} from "./artist/components/artist-list";
 import {DancerInput} from "./dancer/components/dancer-input";
 import {DancerList} from "./dancer/components/dancer-list";
+import {ArtistService} from "./services/artist-service";
 
 
 
@@ -31,13 +32,17 @@ import {DancerList} from "./dancer/components/dancer-list";
         </div>
             
         <div>
-         <button type="button" class="btn btn-warning center-block">
+    <button (click)="shuffle()" type="button" class="btn btn-warning center-block">
         <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
         Shuffle</button>
         </div>
         <div class="row">
           <div class="col-xs-12">
-       
+            <ul class="list-group">
+            <li class="list-group-item">
+                {{shuffled.name}}
+            </li>
+          </ul>
           </div>  
         </div>
      </div>
@@ -45,5 +50,14 @@ import {DancerList} from "./dancer/components/dancer-list";
    
 })
 
-export class AppComponent{}
+export class AppComponent{
+   shuffled = [];
+   constructor(public artistService: ArtistService){} 
+    shuffle(){ 
+    shuffled = this.artistService.shuffleCouples();
+    console.log(this.artistService.dancers);
+   
+    }
+ 
+}
 

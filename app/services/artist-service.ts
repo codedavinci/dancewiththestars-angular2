@@ -60,5 +60,23 @@ export class ArtistService {
         ];
   }
     
-
+  function shuffleCouples(){
+    
+    var i = 0
+       ,k = 0
+       ,temp = null;
+       
+    for(i = this.dancers.length - 1; i> 0; i -= 1 ){
+        
+       /* j = Math.floor(Math.random() * (i + 1));
+        temp = this.artists[i];
+        this.artists[i] = this.artists[j];
+        this.artists[j] = temp;   */  
+        j = Math.floor(Math.random() * (i + 1));
+        temp = this.dancers[i];
+        this.dancers[i] = this.dancers[j];
+        this.dancers[j] = temp;     
+    }
+    return this.dancers
+  }
 }

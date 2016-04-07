@@ -60,23 +60,24 @@ export class ArtistService {
         ];
   }
     
-  function shuffleCouples(){
+
     
-    var i = 0
-       ,k = 0
-       ,temp = null;
-       
-    for(i = this.dancers.length - 1; i> 0; i -= 1 ){
-        
-       /* j = Math.floor(Math.random() * (i + 1));
-        temp = this.artists[i];
-        this.artists[i] = this.artists[j];
-        this.artists[j] = temp;   */  
-        j = Math.floor(Math.random() * (i + 1));
-        temp = this.dancers[i];
-        this.dancers[i] = this.dancers[j];
-        this.dancers[j] = temp;     
+  shuffleCouples(array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+
+          return array;
     }
-    return this.dancers
-  }
 }

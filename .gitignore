@@ -1,0 +1,25 @@
+# Logs
+logs
+*.log
+npm-debug.log
+
+.DS_Store
+
+# Dependency directories
+
+node_modules/
+jspm_packages/
+
+# Optiional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+/app/**/*.js
+/app/**/*.js.map
+/app/**/*.d.ts
+/typings/**/*.d.ts
+
+
+/dancer/

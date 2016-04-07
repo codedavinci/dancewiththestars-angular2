@@ -5,6 +5,7 @@ Applying dependecy injection to add/Delete participants.
 --------------------------------------------------------
 
 Welcome to CODE DA VINCI
+-------------------------
 
 * Make  sure you have AngularJS 2.0 and git installed on your machine. 
 

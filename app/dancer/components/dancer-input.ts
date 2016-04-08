@@ -7,9 +7,9 @@ import {DancerModel} from '../../services/dancer-model';
     selector: 'dancer-input',
     template: `
     <div class="input-group">
-     <input type="text" class="form-control" placeholder="Add a dancer.." [(ngModel)]="dancerModel.name">
+     <input type="text" #dancer class="form-control" placeholder="Add a dancer.." [(ngModel)]="dancerModel.name">
     <span class="input-group-btn">
-    <button class ="btn btn-success" type="button"(click)="onClick()">Add</button>
+    <button class ="btn btn-success" type="button"(click)="onClick(dancer.value)">Add</button>
     </span>
     </div>
     `
@@ -19,10 +19,11 @@ export class DancerInput {
  dancerModel:DancerModel = new DancerModel();
  constructor(public artistService: ArtistService){}
     
-    onClick(){
-    this.artistService.addADancers(this.dancerModel);
-    console.log(this.artistService.dancers);
-    this.dancerModel = new DancerModel();
+    onClick(dancer){
+    if(dancer){
+        this.artistService.addADancers(this.dancerModel);
+        console.log(this.artistService.dancers);
+        this.dancerModel = new DancerModel();
+        }
     }
- 
 }

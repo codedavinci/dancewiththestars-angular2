@@ -12,9 +12,6 @@ import {ArtistService} from "./services/artist-service";
     selector: 'my-app',
     directives: [ArtistInput, ArtistList, DancerList, DancerInput],
     template: `
-     <header> 
-       <h1>Dancing With The Stars</h1>
-    </header>
     <div class ="container">
         <div class="row">
                 <div class="col-xs-6">
@@ -30,15 +27,17 @@ import {ArtistService} from "./services/artist-service";
                   </div>
                 </div>
           </div>
-            
-            <div>
-            <button (click)="shuffle()" type="button" class="btn btn-warning center-block">
+        
+            <div class="col-md-6 col-md-offset-5">
+            <button (click)="clear()" type="button" class="btn btn-primary col-sx-5">
+             Clear List</button>    
+            <button (click)="shuffle()" type="button" class="btn btn-warning col-sx-">
             <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-            Shuffle</button>
+             Shuffle</button>
             </div>
             <br/>
-            
-    <div class="row">
+            <br/>
+    
               <div class="col-xs-4 col-xs-offset-2">
                     <ul class="list-group">
                     <li class="list-group-item" *ngFor="#artist of Ashuffled">
@@ -53,9 +52,8 @@ import {ArtistService} from "./services/artist-service";
                     <label>{{dancer.name}}</label>
                 </li>
                 </ul>
-               
             </div>
-        </div>
+        
      </div>
     `
    
@@ -71,7 +69,11 @@ export class AppComponent{
     this.Ashuffled = this.artistService.shuffleCouples(this.artistService.artists);
     this.Dshuffled = this.artistService.shuffleCouples(this.artistService.dancers);
     console.log(this.Ashuffled, this.Dshuffled);
-   
+    }
+    
+    clear(){
+        this.Dshuffled = [];
+        this.Ashuffled = [];
     }
  
 }

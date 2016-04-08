@@ -40,11 +40,10 @@ export class ArtistService {
         const x = this.artists.indexOf(artist);
 
         this.artists = [
-        ...this.artists.slice(0, x),
-        artist,
-        ...this.artists.slice(x + 1)
+        ...this.artists.slice(0, x)
         ];
-
+        
+        console.log(this.artists);
 
   }
     
@@ -53,11 +52,8 @@ export class ArtistService {
 
         const x = this.dancers.indexOf(dancer);
 
-        this.dancers = [
-        ...this.dancers.slice(0, x),
-        dancer,
-        ...this.dancers.slice(x + 1)
-        ];
+        this.dancers = [...this.dancers.slice(0, x)];
+         console.log(this.dancers);
   }
     
 
